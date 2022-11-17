@@ -10,6 +10,12 @@ async function run() {
   //   console.log(html);
   const title = await page.evaluate(() => document.title);
   console.log(title);
+  //  Get all links
+  const links = await page.evaluate(() =>
+    Array.from(document.querySelectorAll("a"), (e) => e.href)
+  );
+  console.log(links);
+
   await browser.close();
 }
 
